@@ -3,7 +3,7 @@ const Circulo = (props) => {
 
     return (
         
-        <div >
+        <div onClick={props.onClick}>
             
             <div className={props.luz}>  </div>
 
