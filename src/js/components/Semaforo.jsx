@@ -2,28 +2,19 @@ import React, { useState } from "react";
 import Circulo from "./Amarillo";
 
 const Semaforo = () =>{
-	const[rojoActivo, setRojoActivo] = useState(false);
-	const rojoClick = () =>{
-		setRojoActivo(!rojoActivo);
+	const[activo, setActivo] = useState(false);
+	const luzClick = (color) =>{
+		setActivo(color);
 	}
-	const[amarilloActivo, setAmarilloActivo] = useState(false);
-	const amarilloClick = () =>{
-		setAmarilloActivo(!amarilloActivo);
-	}
-	
-	
-	const[verdeActivo, setVerdeActivo] = useState(false);
-	const verdeClick = () =>{
-		setVerdeActivo(!verdeActivo);
-	}
+
 
 	return (
 		<div className="">
 			<div className="caja">
 				<div className="palo">
-					<Circulo luz={rojoActivo?"clickRojo":"formaRoja"} onClick={rojoClick} />
-					<Circulo luz={amarilloActivo?"clickAmarillo":"formaAmarilla"} onClick={amarilloClick} />
-					<Circulo luz={verdeActivo?"clickVerde":"formaVerde"} onClick={verdeClick} />
+					<Circulo luz={activo=="rojo" ?"clickRojo":"formaRoja"} onClick={()=>luzClick("rojo")} />
+					<Circulo luz={activo=="amarillo"?"clickAmarillo":"formaAmarilla"} onClick={()=>luzClick("amarillo")} />
+					<Circulo luz={activo=="verde"?"clickVerde":"formaVerde"} onClick={()=>luzClick("verde")} />
 				</div>
 			</div>
 		</div>
